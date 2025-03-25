@@ -1,0 +1,55 @@
+# ----------------- Comment line starts with # ------------------------
+
+# Similar UI: wakula, baker
+
+>>County: wakulla
+>>URL:  https://www.wakullacountytaxcollector.com/Property/SearchSelect?Accept=true&ClearData=True
+>>INSTRUCTIONS:
+    1. Fill search form using x_tax_account if available, otherwise check for Single Field Form Filling Guidelines. Else, fill using respective inputs like x_house_number and x_street_name. if fields are available.
+    2. Click on the search button.
+    3. From the result, click on link that associates to x_property_address and x_tax_account.
+    4. Click on print bill/receipt button. This will download the PDF file.
+    5. Move all downloaded PDF files to the "downloads" folder
+    6. End task.
+
+>>County: baker
+>>URL:  https://www.bakertaxcollector.com/Property/SearchSelect?Accept=true&ClearData=True
+>>INSTRUCTIONS:
+    1. Fill search form using x_tax_account if available, otherwise check for Single Field Form Filling Guidelines. Else, fill using respective inputs like x_house_number and x_street_name. if fields are available.
+    2. Click on the search button.
+    3. From the result, click on link that associates to x_property_address and x_tax_account.
+    4. Click on print bill/receipt button. This will download the PDF file.
+    5. Move all downloaded PDF files to the "downloads" folder
+    6. End task.
+
+>>County: pasco
+>>URL: https://county-taxes.net/fl-pasco/property-tax
+>>INSTRUCTIONS:
+    1. Fill search form using x_tax_account if available, otherwise check for Single Field Form Filling Guidelines. Else, fill using respective inputs like x_house_number and x_street_name. if fields are available.
+    2. Click on the search button.
+    3. From the result, click on link that associates to x_property_address and x_tax_account.
+    4. Click on print bill/receipt button. This will download the PDF file.
+    5. Move all downloaded PDF files to the "downloads" folder
+    6. End task.
+
+>>County: union
+>>URL: https://www.unioncountytc.com/Property/SearchSelect?Accept=true&ClearData=True
+>>INSTRUCTIONS:
+    1. Fill search form using x_tax_account if available, otherwise check for Single Field Form Filling Guidelines. Else, fill using respective inputs like x_house_number and x_street_name. if fields are available.
+    2. Click on the search button.
+    3. From the result, click on link that associates to x_property_address and x_tax_account.
+    4. Click on print bill/receipt button. This will download the PDF file.
+    5. Move all downloaded PDF files to the "downloads" folder
+    6. End task.
+
+>>County: volusia
+>>URL: https://county-taxes.net/vctaxcollector/property-tax
+>>INSTRUCTIONS:
+    1. Fill search form using x_tax_account if available, otherwise check for Single Field Form Filling Guidelines. Else, fill using respective inputs like x_house_number and x_street_name. if fields are available.
+    2. Click on the search button.
+    3. From the result, click on link that associates to x_property_address and x_tax_account.
+    4. Click on print bill/receipt button. This will download the PDF file.
+    5. Move all downloaded PDF files to the "downloads" folder
+    6. End task.
+
+

@@ -26,8 +26,39 @@ class ClientBaseBot(BaseBot):
         pdf_extension = PDFExtension(default_output_dir=downloads_path)
         pdf_extension.extend(self.controller)
         
-         # After initialization, check if our event system is properly set up
-        # if not hasattr(self, '_events') or not isinstance(self._events, dict):
+        with open('prompts.txt', 'r') as f:
+            prompt_data = {}
+            current_county = None
+
+            for line in f:
+                line = line.strip()
+                
+                if line.startswith("#"):
+                    continue                
+                if line.startswith(">>County:"):
+                    current_county = line.replace('>>County:', '').strip()
+                    prompt_data[current_county] = {}
+                elif line.startswith(">>URL:"):
+                    url = line.replace('>>URL:', '').strip()
+                    prompt_data[current_county]['url'] = url
+                elif line.startswith(">>INSTRUCTIONS:"):
+                    instructions = []
+                    continue
+                elif line.startswith(">>County:") or line == "":
+                    if current_county and instructions:
+                        prompt_data[current_county]['instructions'] = "\n".join(instructions)
+                    instructions = []
+                else:
+                    instructions.append(line.strip())
+
+            if current_county and instructions:
+                prompt_data[current_county]['instructions'] = "\n".join(instructions)
+
+            # prompt_json = json.dumps(prompt_data, indent=4)
+            # print(prompt_json)
+            
+            self.prompt_json = prompt_data
+            # print(self.prompt_json)
         #     print("Warning: Event system not properly initialized")
         #     self._events = {}
         # else:
@@ -37,6 +68,25 @@ class ClientBaseBot(BaseBot):
     #     print("ON REGISTERED EVENT")
     #     if(self.autojoin_channel):
     #         self.emit("join_channel", self.autojoin_channel)
+    
+    def get_instructions(self, sensitive_data):
+        county = sensitive_data.get('x_county')
+        if county:
+            prompt_data = self.prompt_json.get(county, {})
+            navigate_url = prompt_data.get('url', '')
+            instructions = prompt_data.get('instructions', '')
+        else:
+            instructions = ''
+            
+        if not instructions or not navigate_url:
+            return None
+            
+        instructions = f"""
+        Navigate to the following URL: {navigate_url}
+        {instructions}
+        """
+        
+        return instructions
         
     async def call_agent(self, task, extend_system_message=None, sensitive_data=None):
         

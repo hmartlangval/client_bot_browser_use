@@ -273,6 +273,8 @@ class BaseBot(EventEmitter):
             
             # Emit bot registered event
             self.emit("botRegistered", data)
+            # self.emit("join_channel", "general")
+            self.process_command("/join general")
     
     def console_input_loop(self):
         """
