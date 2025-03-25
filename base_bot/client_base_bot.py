@@ -30,24 +30,34 @@ class ClientBaseBot(BaseBot):
             prompt_data = {}
             current_county = None
 
+            in_instructions = False
+            
             for line in f:
                 line = line.strip()
-                
+
                 if line.startswith("#"):
                     continue                
-                if line.startswith(">>County:"):
+                if line.startswith(">>County:") and not in_instructions:
                     current_county = line.replace('>>County:', '').strip()
                     prompt_data[current_county] = {}
+                    in_instructions = False
                 elif line.startswith(">>URL:"):
                     url = line.replace('>>URL:', '').strip()
                     prompt_data[current_county]['url'] = url
                 elif line.startswith(">>INSTRUCTIONS:"):
                     instructions = []
+                    in_instructions = True
+                elif in_instructions:
+                    if line.startswith(">>County:"):
+                        if current_county and instructions:
+                            prompt_data[current_county]['instructions'] = "\n".join(instructions)
+                        current_county = line.replace('>>County:', '').strip()
+                        prompt_data[current_county] = {}
+                        in_instructions = False
+                    else:
+                        instructions.append(line.strip())
+                elif line == "":
                     continue
-                elif line.startswith(">>County:") or line == "":
-                    if current_county and instructions:
-                        prompt_data[current_county]['instructions'] = "\n".join(instructions)
-                    instructions = []
                 else:
                     instructions.append(line.strip())
 

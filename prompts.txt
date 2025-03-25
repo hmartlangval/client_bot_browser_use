@@ -1,5 +1,24 @@
 # ----------------- Comment line starts with # ------------------------
 
+
+>>County: palmbeach
+>>URL:  https://pbctax.publicaccessnow.com/PropertyTax.aspx
+>>INSTRUCTIONS:
+    Prefer search by x_tax_account if available, because it is more reliable.
+    
+    To search using x_tax_account:
+        1. Click on the expand/collapse header labelled Search by Property Control Number
+        2. Fill in the x_tax_account in the input file under PCN/PIN and submit search
+        2. Wait for 3 minutes
+        2. End task.
+    
+    To search using x_property_address:
+        1. Click on the expand/collapse header labelled Search by Property Address
+        2. Fill in the stree information and submit search
+        2. Wait for 3 minutes
+        2. End task.
+
+
 # Similar UI: wakula, baker
 
 >>County: wakulla
