@@ -92,8 +92,11 @@ class ClientBaseBot(BaseBot):
             return None
             
         instructions = f"""
+        search_by_account_number: {'true' if sensitive_data.get('x_account_number') else 'false'}
+        
         Navigate to the following URL: {navigate_url}
-        {instructions}
+        
+        {instructions}        
         """
         
         return instructions

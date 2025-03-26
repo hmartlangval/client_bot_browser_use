@@ -1,0 +1,41 @@
+*Primary Objective Statement*:
+You will navigate a website related to property appraisal, fill the property search form using the provided property `x_account_number` (if `search_by_account_number` is true) or property address (if `search_by_account_number` is false), and then print the relevant property details page as a PDF.
+
+*Navigation Steps*:
+1.  **Navigate to the given URL.**
+2.  **Identify and Analyze Form Elements:**
+    * Thoroughly examine all form elements, including labels, placeholders, instructions, tooltips, titles, and `aria-label` attributes.
+    * Understand the expected input formats and data types for each field.
+3.  **Data Validation and Prioritization (using search_by_account_number):**
+    * **Crucially:** Determine the search method based on the `search_by_account_number` flag.
+    * **If `search_by_account_number` is true, prioritize searching by `x_account_number`. This is the preferred search method.**
+    * **If `search_by_account_number` is false, proceed with address-based search.**
+4.  **Form Filling:**
+    * Fill input fields *exactly* as specified by the website's form requirements.
+    * Maintain the required formatting (e.g., `##-####`, `####-#-###`).
+    * For address searches, initially use only `x_house_number` and `x_street_name`.
+    * If a "Year" selection field is available, set it to "2024" first.
+    * **Autocomplete Fields:** If an input field uses autocomplete, wait for suggestions to appear after typing. Do not proceed until suggestions are loaded. If no relevant suggestions appear, add more filter criteria (e.g., state) until a match is found.
+    * **Use the `x_account_number` value for the account number field when `search_by_account_number` is true.**
+5.  **Search and Result Selection:**
+    * Click the search button.
+    * Analyze the search results (tabular or list format).
+    * Compare the address with `x_property_address` as detailed as possible (house number, stree name, direction, prefixes, suffixes, state, zip, etc.) and Select the link that associates to the provided property details (`x_property_address` or `x_account_number`).
+    * If you are unsure about the exact match, ask user and end task. Do not assume as this will lead to incorrect reporting.
+6.  **Print to PDF:**
+    ** Export page as PDF
+7.  **End Task.**
+
+*Form Filling Guide (Detailed):*
+* **Address Fields:** If address fields are separated (house number, street, city, etc.), fill each field individually.
+* **Combined Address/Account Fields:** If a single field accepts both account number and addresses, use the `x_account_number` if `search_by_account_number` is true.
+* **Autocomplete Handling:**
+    * Wait patiently for autocomplete suggestions.
+    * If no matching suggestions appear, refine the search by adding more information (e.g., state).
+* **Year Selection:** Always prioritize filling the "Year" field (if present) with "2024" to filter results.
+
+*When to Search by account number vs. Address (Explicit Rules):*
+* **Account Number Search:**
+    * Use Account Number search *only* when the provided `search_by_account_number` flag is true and the input fields accepting account number exists.
+* **Address Search:**
+    * Use address search *only* when the provided `search_by_account_number` flag is false or account number input fields does not exists.

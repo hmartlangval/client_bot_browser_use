@@ -1,75 +1,10 @@
-# ----------------- Comment line starts with # ------------------------
 
-
->>County: palmbeach
->>URL:  https://pbctax.publicaccessnow.com/PropertyTax.aspx
+>>County: brevard
+>>URL: https://county-taxes.net/brevard/property-tax
 >>INSTRUCTIONS:
-    Prefer search by x_tax_account if available, because it is more reliable.
-    
-    To search using x_tax_account:
-        1. Click on the expand/collapse header labelled Search by Property Control Number
-        2. Fill in the x_tax_account in the input file under PCN/PIN and submit search
-        2. Wait for 3 minutes
-        2. End task.
-    
-    To search using x_property_address:
-        1. Click on the expand/collapse header labelled Search by Property Address
-        2. Fill in the stree information and submit search
-        2. Wait for 3 minutes
-        2. End task.
-
-
-# Similar UI: wakula, baker
-
->>County: wakulla
->>URL:  https://www.wakullacountytaxcollector.com/Property/SearchSelect?Accept=true&ClearData=True
->>INSTRUCTIONS:
-    1. Fill search form Tax Year as 2024
-    2. Fill search form using x_tax_account if available, otherwise, fill the house number and street name in the search form
-    3. Click on the search button.
-    4. From the result, click on link that associates to x_property_address and x_tax_account.
-    5. Click on print bill/receipt button. This will download the PDF file.
-    6. Move all downloaded PDF files to the "downloads" folder
-    7. End task.
+    Proceed with the search and download the pdf using the given information
 
 >>County: baker
 >>URL:  https://www.bakertaxcollector.com/Property/SearchSelect?Accept=true&ClearData=True
 >>INSTRUCTIONS:
-    1. Fill search form using x_tax_account if available, otherwise check for Single Field Form Filling Guidelines. Else, fill using respective inputs like x_house_number and x_street_name. if fields are available.
-    2. Click on the search button.
-    3. From the result, click on link that associates to x_property_address and x_tax_account.
-    4. Click on print bill/receipt button. This will download the PDF file.
-    5. Move all downloaded PDF files to the "downloads" folder
-    6. End task.
-
->>County: pasco
->>URL: https://county-taxes.net/fl-pasco/property-tax
->>INSTRUCTIONS:
-    1. Fill search form using x_tax_account if available, otherwise check for Single Field Form Filling Guidelines. Else, fill using respective inputs like x_house_number and x_street_name. if fields are available.
-    2. Click on the search button.
-    3. From the result, click on link that associates to x_property_address and x_tax_account.
-    4. Click on print bill/receipt button. This will download the PDF file.
-    5. Move all downloaded PDF files to the "downloads" folder
-    6. End task.
-
->>County: union
->>URL: https://www.unioncountytc.com/Property/SearchSelect?Accept=true&ClearData=True
->>INSTRUCTIONS:
-    1. Fill search form using x_tax_account if available, otherwise check for Single Field Form Filling Guidelines. Else, fill using respective inputs like x_house_number and x_street_name. if fields are available.
-    2. Click on the search button.
-    3. From the result, click on link that associates to x_property_address and x_tax_account.
-    4. Click on print bill/receipt button. This will download the PDF file.
-    5. Move all downloaded PDF files to the "downloads" folder
-    6. End task.
-
->>County: volusia
->>URL: https://county-taxes.net/vctaxcollector/property-tax
->>INSTRUCTIONS:
-    1. Fill search form using x_tax_account if available, otherwise check for Single Field Form Filling Guidelines. Else, fill using respective inputs like x_house_number and x_street_name. if fields are available.
-    2. Click on the search button.
-    3. From the result, click on link that associates to x_property_address and x_tax_account.
-    4. Click on print bill/receipt button. This will download the PDF file.
-    5. Move all downloaded PDF files to the "downloads" folder
-    6. End task.
-
-
+    Proceed with the search and download the pdf using the given information
