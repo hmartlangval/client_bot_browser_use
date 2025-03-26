@@ -13,6 +13,78 @@ class PropertyBot(ClientBaseBot):
         # sensitive_data = {'x_parcel_number': '1-35-36-35-0010-00000-0190', 'x_address': '2320 NE 54TH TRAIL, OKEECHOBEE, FL 34972'}
         sensitive_data = {'x_parcel_number': '', 'x_property_name': 'ASINI PROPERTIES LLC', 'x_address': '13127 Grassy Lane'}
 
+        task = """
+        1. Navigate to URL: https://www.okeechobeepa.com/gis/
+        2. if you see a popup to agree the terms and conditions, click on agree
+        3. Type in the parcel number
+        4. Click on the search button
+        5. From the result, click on the parce id that matches the parcel number
+        6. Final screen will have the property details, print the page as PDF
+        7. Wait for 3 minutes
+        """
+        
+        task = """
+        search by parcel id: 
+        1. navigate
+        2. type parcel id
+        3. click the first item
+        
+        serach by address:
+        
+        1. Navigate to URL: https://county-taxes.net/fl-pasco/property-tax
+        2. Search for address using the x_address.
+        3. From the list of dropdown suggestions, click on the address that is most similar to the x_address. Note that the address options may have (or omit) additional information like unit number, zip code, etc not in x_address, but you must click on the address that is most similar to the x_address. 
+        4. If you do not see matching result in the top 5 suggestions, refine the search using short notations. Example Ln instead of Lane, St instead of Street, etc. Repeat this for maximum 3 times with different combinations. On each attempt, make sure to clear the input field and start again.
+        5. Only if match is found, Click on the search button. If not match found, stop the task.
+        6. From result click on the View button that matches the x_property_name
+        7. Results shows the information of Real Estate parcel account details and annly reports in a list
+        8. Click on the PDF download link that associated for Annual year 2024
+        9. Wait for 3 minutes
+        """
+
+        standard_task = """
+        1. Navigate to URL based on x_county.
+        2. Fill search form using x_tax_account if available, otherwise check for Single Field Form Filling Guidelines. Else, fill using respective inputs like x_house_number and x_street_name. if fields are available.
+        3. Click on the search button.
+        4. From the result, click on link that associates to x_property_address and x_tax_account.
+        5. Click on print bill/receipt button. This will download the PDF file.
+        6. Move all downloaded PDF files to the "downloads" folder
+        7. End task.
+        """
+        
+        task = f"""
+        I have a standard task to do as below:  
+        
+        Instructions:
+        {standard_task}
+        
+        # Navigate to the following URL based on x_county:
+        #     "Taylor": "https://taylor.floridatax.us/AccountSearch?s=pt",
+        #     "Pasco": "https://county-taxes.net/fl-pasco/property-tax",
+        #     "Union": "https://www.unioncountytc.com/Property/SearchSelect?Accept=true&ClearData=True",
+        #     "Wakulla": "https://www.wakullacountytaxcollector.com/Property/SearchSelect?Accept=true&ClearData=True",
+        #     "Volusia": "https://county-taxes.net/vctaxcollector/property-tax"
+        #     "Baker": "https://www.bakertaxcollector.com/Property/SearchSelect?Accept=true&ClearData=True"
+            
+            
+
+        Customization for the task Only if applicable:
+        For Union County:
+        1. Fill search form Tax Year as 2024
+        2. If x_tax_account is not available, then fill the house number and street name in the search form
+        
+        For Wakulla County:
+        1. Fill search form Tax Year as 2024
+        2. If x_tax_account is not available, then fill the house number and street name in the search form
+        
+        For Baker County:
+        1. Fill search form Tax Year as 2024
+        2. If x_tax_account is not available, then fill the house number and street name in the search form
+        
+        For Volusia County:
+        1. Fill x_house_number and x_street_name in the search form. wait for result. Repeat single field form filling guidelines.
+        """
+        
         # union
         sensitive_data = {
                 # 'x_tax_account': '21-06-19-39-000-0141-0', 
@@ -25,10 +97,15 @@ class PropertyBot(ClientBaseBot):
                 'x_zip_code': '32054'
             }
         
-        # taylor
+        
+        
+       
+         # taylor
         # sensitive_data = {'x_tax_account': 'R06810-000', 'x_county': 'Taylor', 'x_property_address': '1575 EZELL BEACH RD'}
         sensitive_data4 = {'x_tax_account': '', 'x_county': 'Taylor', 'x_property_address': '1575 EZELL BEACH RD'}
-   
+       
+        #Wakulla
+        sensitive_data = {'x_tax_account': '01-4S-02W-000-01807-002', 'x_county': 'Wakulla', 'x_property_address': '239 HARVEY MILL RD CRAWFORDVILLE 32327'}
        
         #Baker
         sensitive_data = {'x_tax_account': '322S22004900800010', 'x_county': 'Baker', 'x_property_address': '362 MINNESOTA AVE E MACCLENNY'}
@@ -40,17 +117,7 @@ class PropertyBot(ClientBaseBot):
         #Volusia
         sensitive_data = {'x_tax_account': '', 'x_county': 'volus3ia', 'x_property_address': '340 COLOMBA RD DEBARY 32713'}
         
-        #Wakulla
-        sensitive_data = {'x_tax_account': '01-4S-02W-000-01807-002', 'x_county': 'wakulla', 'x_property_address': '239 HARVEY MILL RD CRAWFORDVILLE 32327'}
         
-        #Palm Beach
-        # sensitive_data = {'x_tax_account': '00-42-43-23-14-015-3470', 'x_county': 'palmbeach', 'x_property_address': '347 NORWICH O WEST PALM BEACH,FL 33417-7973'}
-        sensitive_data = {'x_tax_account': '74-42-43-01-07-000-0103', 'x_county': 'palmbeach', 'x_property_address': '127 1ST WAY, WEST PALM BEACH, FL'}
-        
-        #Brevard
-        sensitive_data = {
-            'x_county': 'brevard','x_tax_account': '010089000', 'x_property_address': 'STONEWOOD TOWNHOMES LLC ,325 E UNIVERSITY BLVD #81'
-        }
         
         # SYsTEM LOGIC ---- DO Not EDIt below tHIS LINE -----------------------------------------
         
